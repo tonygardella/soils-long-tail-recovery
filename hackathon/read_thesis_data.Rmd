@@ -1,0 +1,39 @@
+---
+title: "Read in David's Data"
+author: "Tony Gardella"
+date: "12/10/2017"
+output: html_document
+---
+
+Read In File. Assumes you have excel spreadsheet from David LeBauer in directory
+```{r setup, include=FALSE}
+dat<-read_xlsx("Thesis Sed Tables.xlsx",skip = 1)
+dat1<-na.omit(dat[2:17]))
+dat2 <-dat[1]
+inner_join(dat2,dat1)
+
+
+```
+
+Create the ISCN Data
+
+Sheet 1. Author of data and source
+```{r setup, include=FALSE}
+author<- "David Lebauer"
+institute<- "University Illinois Urbana Champaign"
+```
+Sheet2. Site Info
+```{r setup, include=FALSE}
+site<- list("Hill","valley")
+lat <- ""
+lon <-""
+date <-""
+biome <-""
+```
+Sheet3. Samples
+```{r setup, include=FALSE}
+var_names<- dat$`Table 3: Summary statistics for all treatments within each plot`
+treatments<- dat[1]
+
+gather(data=dat, key="0 gn")
+```
